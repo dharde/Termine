@@ -1,0 +1,26 @@
+<h1>Termine</h1>
+<p></p>
+
+<table style="width:70%">
+<% @termins.each do |t| %>
+<% if t.todo == "0" %>
+<tr><td><%= t.formated_string %></td><td>   <%= link_to "Delete", {:action => 'delete', :id => t.id} %></td></tr>
+<% end %>
+<% end %>
+
+<tr><td>  </td></tr>
+<tr><td>  </td></tr>
+
+<% @todo.each do |t| %>
+<% if t.todo == "1" %>
+<tr><td><li><%= t.formated_string %></li></td><td>   <%= link_to "Delete", {:action => 'delete', :id => t.id} %></td></tr>
+<% end %>
+<% end %>
+
+</table>
+<p></p>
+
+<%= form_for @termin_new, :url => { :action => "create" }  do |f|  %>
+    <%= f.text_field  :input, size: 60 %>
+    <%= f.submit "Add Termin" %>
+ <%end%>

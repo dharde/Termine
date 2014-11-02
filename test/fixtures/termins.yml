@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  input: MyString
+  date: MyString
+  time: MyString
+  todo: MyString
+  formated_string: MyString
+
+two:
+  input: MyString
+  date: MyString
+  time: MyString
+  todo: MyString
+  formated_string: MyString
