@@ -3,6 +3,7 @@ class TerminsController < ApplicationController
 		@termin_new = Termin.new
 		@termins = Termin.all().order(:date, :time)
 		@todo = Termin.all().order(:id)
+		@haikus = self.haiku
 	end
 
 	def create
@@ -131,7 +132,18 @@ class TerminsController < ApplicationController
 	
 	
 	
-	def destroy
+	def haiku
+	    preposition = ["at", "on", "in", "before", "towards", "only"]
+		noun = ["sun", "moon", "tree", "forest", "sea", "pond", "mountain", "field", "star", "whisper", "bird", "butterfly", "cocoon", "deer", "wolf"]
+		verb = ["runs", "falls", "turns", "swings", "drops", "flies", "shoots", "sways", "swims", "tumbles", "chases", "hurries", "scoops"]
+		adjective = ["bright", "dark", "shady", "thin", "golden", "loud", "silver", "red", "thick", "tender", "silent", "constant", "changed", "misty", "foggy"]
+		adverb = ["deeply", "quietly", "suddenly", "quickly", "tenderly", "secretly", "slowly", "warmly"]
+ 
+		line_one = "#{preposition[Random.rand(preposition.length)]} the #{noun[Random.rand(noun.length)]} #{adjective[Random.rand(adjective.length)]}"
+		line_two = "a #{noun[Random.rand(noun.length)]} #{verb[Random.rand(verb.length)]} #{adverb[Random.rand(adverb.length)]}"
+		line_three = "a #{adjective[Random.rand(adjective.length)]} #{noun[Random.rand(noun.length)]}"
+		
+		return haiku_out = [line_one, line_two, line_three]
 	end
 	
 	def delete

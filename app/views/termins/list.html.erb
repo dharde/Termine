@@ -25,7 +25,11 @@
     <%= f.submit "Add Termin" %>
  <%end%>
  
- <p></p>
- <p></p>
+<br>
 <small>For a termin enter => 31.10, 16:00, message text.  For a todo enter => todo, message text.</small>
-<p></p>
+<br>
+<br>
+<br>
+<% @haikus.each do |h| %>
+<small><%= h %></small><br>
+<% end %>
