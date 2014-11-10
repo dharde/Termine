@@ -87,14 +87,24 @@ class TerminsController < ApplicationController
 		    end
 			date_dot = a[0].split(".")
 			termine_day = date_dot[0].to_i
+			if termine_day < 10
+			   termine_day_str = '0'+termine_day.to_s
+			else
+			   termine_day_str = termine_day.to_s
+			end
 			termine_month = date_dot[1].to_i
+			if termine_month < 10
+			   termine_month_str = '0'+ termine_month.to_s
+			else
+			   termine_month_str = termine_month.to_s
+			end
 			# check if year should be next year
 				if termine_month <= month_current and termine_day < day_current
 					termine_year = year_current + 1
 				end
 	
 			## format the date for db :date
-			db_date_string = termine_year.to_s + " " + termine_month.to_s + " " + termine_day.to_s + " "
+			db_date_string = termine_year.to_s + " " + termine_month_str + " " + termine_day_str + " "
 		
 			@termin.time = termin_time.to_s
 			@termin.date = db_date_string
