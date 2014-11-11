@@ -143,14 +143,14 @@ class TerminsController < ApplicationController
 	
 	
 	def haiku
-	    preposition = ["at", "on", "in", "before", "towards", "only"]
+	    preposition = ["at", "on", "in", "before"]
 		noun = ["sun", "moon", "tree", "forest", "sea", "pond", "mountain", "field", "star", "whisper", "bird", "butterfly", "cocoon", "deer", "wolf"]
-		verb = ["runs", "falls", "turns", "swings", "drops", "flies", "shoots", "sways", "swims", "tumbles", "chases", "hurries", "scoops"]
+		verb = ["runs", "falls", "turns", "swings", "drops", "flies", "shoots", "sways", "swims", "tumbles", "chases", "hurries"]
 		adjective = ["bright", "dark", "shady", "thin", "golden", "loud", "silver", "red", "thick", "tender", "silent", "constant", "changed", "misty", "foggy"]
-		adverb = ["deeply", "quietly", "suddenly", "quickly", "tenderly", "secretly", "slowly", "warmly"]
+		adverb = ["quietly", "suddenly", "quickly", "tenderly", "secretly", "slowly"]
  
-		line_one = "#{preposition[Random.rand(preposition.length)]} the #{noun[Random.rand(noun.length)]} #{adjective[Random.rand(adjective.length)]}"
-		line_two = "a #{noun[Random.rand(noun.length)]} #{verb[Random.rand(verb.length)]} #{adverb[Random.rand(adverb.length)]}"
+		line_one = "#{preposition[Random.rand(preposition.length)]} the #{noun[Random.rand(noun.length)]}"
+		line_two = "a #{noun[Random.rand(noun.length)]} #{verb[Random.rand(verb.length)]}"
 		line_three = "a #{adjective[Random.rand(adjective.length)]} #{noun[Random.rand(noun.length)]}"
 		
 		return haiku_out = [line_one, line_two, line_three]
