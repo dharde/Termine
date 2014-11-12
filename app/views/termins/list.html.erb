@@ -1,7 +1,7 @@
 <h1>Termine</h1>
 <p></p>
 
-<table style="width:60%">
+<table style="width:85%">
 <% @termins.each do |t| %>
 <% if t.todo == "0" %>
 <tr><td><%= t.formated_string %></td><td>   <%= link_to "Delete", {:action => 'delete', :id => t.id} %></td></tr>
