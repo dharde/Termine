@@ -6,7 +6,7 @@ class CreateTermins < ActiveRecord::Migration
       t.string :time
       t.string :todo
       t.string :formated_string
-
+      t.string :finished
       t.timestamps
     end
   end

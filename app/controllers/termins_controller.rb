@@ -22,7 +22,7 @@ class TerminsController < ApplicationController
 	## outputs data = [db_date_string, termine_time, db_msg_string, formated_string] 
 	## todo is formated so: "todo, msg"
 	## termine is formated so: "30.10, 16:00, msg"
-
+        @termin.finished = "0"
 		formated_string = ""
 		db_date_string = ""
 		db_msg_string = ""
@@ -158,6 +158,13 @@ class TerminsController < ApplicationController
 	
 	def delete
 		Termin.find(params[:id]).destroy
+		redirect_to :action => 'list'
+	end
+	
+	def finished
+		termin = Termin.find(params[:id])
+		termin.finished = "1"
+		termin.save
 		redirect_to :action => 'list'
 	end
 	

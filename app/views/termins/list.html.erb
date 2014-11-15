@@ -3,8 +3,8 @@
 
 <table style="width:85%">
 <% @termins.each do |t| %>
-<% if t.todo == "0" %>
-<tr><td><%= t.formated_string %></td><td>   <%= link_to "Delete", {:action => 'delete', :id => t.id} %></td></tr>
+<% if t.todo == "0" && t.finished == "0" %>
+<tr><td><%= t.formated_string %></td><td>   <%= link_to "remove", {:action => 'finished', :id => t.id} %></td></tr>
 <% end %>
 <% end %>
 
@@ -12,22 +12,43 @@
 <tr><td>  </td></tr>
 
 <% @todo.each do |t| %>
-<% if t.todo == "1" %>
-<tr><td><li><%= t.formated_string %></li></td><td>   <%= link_to "Delete", {:action => 'delete', :id => t.id} %></td></tr>
+<% if t.todo == "1" and t.finished == "0" %>
+<tr><td><li><%= t.formated_string %></li></td><td>   <%= link_to "remove", {:action => 'finished', :id => t.id} %></td></tr>
 <% end %>
 <% end %>
 
-</table>
-<p></p>
+
+<tr><td>  </td></tr>
+<tr><td>  </td></tr>
 
 <%= form_for @termin_new, :url => { :action => "create" }  do |f|  %>
-    <%= f.text_field  :input, size: 60 %>
-    <%= f.submit "Add Termin" %>
+<tr><td><%= f.text_field  :input, size: 50 %>
+    <%= f.submit "Add Termin" %></td></tr>
  <%end%>
  
 <br>
-<small>For a termin enter => 31.10, 16:00, message text.  For a todo enter => todo, message text.</small>
+<tr><td><small>For a termin enter => 31.10, 16:00, message text.  For a todo enter => todo, message text.</small></td></tr>
+<tr><p></p><br></tr><p></p>
+<p></p>
 <br>
+<br>
+
+<% @termins.each do |t| %>
+<% if t.todo == "0" and t.finished == "1"%>
+<tr><td><small><%= t.formated_string %></td><td>   <%= link_to "delete", {:action => 'delete', :id => t.id} %></small></td></tr>
+<% end %>
+<% end %>
+
+
+<% @todo.each do |t| %>
+<% if t.todo == "1" and t.finished == "1"%>
+<tr><td><small><li><%= t.formated_string %></li></td><td>   <%= link_to "delete", {:action => 'delete', :id => t.id} %></small></td></tr>
+<% end %>
+<% end %>
+</table>
+
+<p></p>
+<p></p>
 <br>
 <br>
 <% @haikus.each do |h| %>

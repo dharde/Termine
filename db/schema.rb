@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20141101091840) do
     t.string   "date"
     t.string   "time"
     t.string   "todo"
+    t.string   "finished"
     t.string   "formated_string"
     t.datetime "created_at"
     t.datetime "updated_at"
