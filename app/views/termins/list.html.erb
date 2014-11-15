@@ -1,5 +1,4 @@
 <h1>Termine</h1>
-<p></p>
 
 <table style="width:85%">
 <% @termins.each do |t| %>
@@ -18,20 +17,14 @@
 <% end %>
 
 
-<tr><td>  </td></tr>
-<tr><td>  </td></tr>
-
 <%= form_for @termin_new, :url => { :action => "create" }  do |f|  %>
-<tr><td><%= f.text_field  :input, size: 50 %>
+<tr><td><br><br><%= f.text_field  :input, size: 50 %>
     <%= f.submit "Add Termin" %></td></tr>
  <%end%>
  
-<br>
-<tr><td><small>For a termin enter => 31.10, 16:00, message text.  For a todo enter => todo, message text.</small></td></tr>
-<tr><p></p><br></tr><p></p>
-<p></p>
-<br>
-<br>
+
+<tr><td><small>For a termin enter => 31.10, 16:00, message text.  For a todo enter => todo, message text.</small><br><br><br></td></tr>
+
 
 <% @termins.each do |t| %>
 <% if t.todo == "0" and t.finished == "1"%>
@@ -47,8 +40,10 @@
 <% end %>
 </table>
 
-<p></p>
-<p></p>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <% @haikus.each do |h| %>
