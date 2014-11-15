@@ -26,6 +26,7 @@
 <tr><td><small>For a termin enter => 31.10, 16:00, message text.  For a todo enter => todo, message text.</small><br><br><br></td></tr>
 
 
+<tr><td><h3>Completed</h3></td></tr>
 <% @termins.each do |t| %>
 <% if t.todo == "0" and t.finished == "1"%>
 <tr><td><small><%= t.formated_string %></td><td>   <%= link_to "delete", {:action => 'delete', :id => t.id} %></small></td></tr>
