@@ -2,9 +2,19 @@
 <head>
 <style type="text/css">
 a {text-decoration:none}
+a:link {color: #000000}
+a:visited {color: #000000}
+a:hover {color: #fdfdfd}
+a:active {color: #000000}
+
+#header { background-color: #d2d2d2}
+body { background-color: #d2d2d2}
 </style>
 </head>
 <body>
+
+<div id="header">
+
 <h1>Termine</h1>
 
 <table style="width:90%">
@@ -32,6 +42,10 @@ a {text-decoration:none}
 
 <tr><td><small>For a termin enter => 31.10, 16:00, message text.  For a todo enter => todo, message text.</small><br><br><br></td></tr>
 
+</div>
+
+
+
 
 <tr><td><h3>Completed</h3></td></tr>
 <% @termins.each do |t| %>
@@ -47,6 +61,8 @@ a {text-decoration:none}
 <% end %>
 <% end %>
 </table>
+
+
 
 <br>
 <br>
