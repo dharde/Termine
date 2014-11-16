@@ -1,6 +1,13 @@
+<html>
+<head>
+<style type="text/css">
+a {text-decoration:none}
+</style>
+</head>
+<body>
 <h1>Termine</h1>
 
-<table style="width:85%">
+<table style="width:90%">
 <% @termins.each do |t| %>
 <% if t.todo == "0" && t.finished == "0" %>
 <tr><td><%= t.formated_string %></td><td>   <%= link_to "remove", {:action => 'finished', :id => t.id} %></td></tr>
@@ -18,7 +25,7 @@
 
 
 <%= form_for @termin_new, :url => { :action => "create" }  do |f|  %>
-<tr><td><br><br><%= f.text_field  :input, size: 50 %>
+<tr><td><br><br><%= f.text_field   :input, :placeholder => "enter a termin or todo", size: 50 %>
     <%= f.submit "Add Termin" %></td></tr>
  <%end%>
  
@@ -50,3 +57,6 @@
 <% @haikus.each do |h| %>
 <small><%= h %></small><br>
 <% end %>
+
+</body>
+</html>
